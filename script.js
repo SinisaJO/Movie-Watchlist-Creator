@@ -8,14 +8,14 @@ let watchlistMovies = []
 async function getData() {
     const searchValue = searchInput.value
     moviesPlaceholder.innerHTML = ``
-    const res = await fetch(`http://www.omdbapi.com/?apikey=99bb1601&s=${searchValue}`) 
+    const res = await fetch(`https://www.omdbapi.com/?apikey=99bb1601&s=${searchValue}`) 
     const data = await res.json()
     const dataArr = data.Search
 
     placeholder.remove()
     if(dataArr){
     dataArr.forEach(element => {
-        fetch(`http://www.omdbapi.com/?apikey=99bb1601&i=${element.imdbID}`)
+        fetch(`https://www.omdbapi.com/?apikey=99bb1601&i=${element.imdbID}`)
             .then(res => res.json())
             .then(data => {
                 renderCards(data)

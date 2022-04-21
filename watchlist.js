@@ -11,7 +11,7 @@ function getData() {
     if (dataArr.length){
         placeholder.style.display = "none"
         dataArr.forEach(element => {
-            fetch(`http://www.omdbapi.com/?apikey=99bb1601&i=${element}`)
+            fetch(`https://www.omdbapi.com/?apikey=99bb1601&i=${element}`)
                 .then(res => res.json())
                 .then(data => {
                     renderCards(data)
