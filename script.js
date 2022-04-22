@@ -2,7 +2,8 @@ const placeholder = document.getElementById("placeholder-box")
 const moviesPlaceholder = document.getElementById("movies-placeholder")
 const searchInput = document.getElementById("search-input")
 const searchBtn = document.getElementById("search-btn")
-
+const searchLogoBtn = document.getElementById("search-btn-logo")
+let isAdded = false
 let watchlistMovies = []
 
 async function getData() {
@@ -36,12 +37,13 @@ function renderCards(data) {
                 <div class="title">
                     <h2>${data.Title}</h2> <h5><span>⭐</span>${data.imdbRating}</h5>
                 </div>
-                <h5>${data.Runtime}</h5> <h5>${data.Genre}</h5> <h4 class="addToWatchlist" onclick="saveToWatchlist('${data.imdbID}')"><img src="/images/plusIcon.svg" />Watchlist</h4>
+                <h5>${data.Runtime}</h5> <h5>${data.Genre}</h5> <h4 class="addToWatchlist" onclick="saveToWatchlist('${data.imdbID}')"><img src="/images/plusIcon.svg"/>Watchlist</h4>
                 <p>${data.Plot}</p>
             </div>
         </div>
     `
 }
+
 function saveToWatchlist(data) {
     if(localStorage.getItem("movieId")){
         watchlistMovies = JSON.parse(localStorage.getItem("movieId"))
@@ -52,11 +54,13 @@ function saveToWatchlist(data) {
     } else {
         watchlistMovies.push(data);
         localStorage.setItem('movieId', JSON.stringify(watchlistMovies))
-    }     
+    }   
 }
 
-
-searchBtn.addEventListener("click", () => {
+function search(){
     getData()
     searchInput.value = ""
-})
+}
+
+searchBtn.addEventListener("click", search)
+searchLogoBtn.addEventListener("click", search)

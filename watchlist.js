@@ -1,6 +1,8 @@
 const moviesPlaceholder = document.getElementById("movies-placeholder")
 const placeholder = document.getElementById("placeholder-box")
 let dataArr = (JSON.parse(localStorage.getItem("movieId")))
+let isAdded = false
+
 
 if(dataArr.length === 0){
     localStorage.clear()
@@ -37,7 +39,7 @@ function renderMovies(data) {
                 <div class="title">
                     <h2>${Title}</h2> <h5><span>⭐</span>${imdbRating}</h5>
                 </div>
-                <h5>${Runtime}</h5> <h5>${Genre}</h5> <h4 class="addToWatchlist" id="${imdbID}" onclick="removeFromWatchList('${imdbID}')"><img src="/images/plusIcon.svg"/>Remove from watchlist</h4>
+                <h5>${Runtime}</h5> <h5>${Genre}</h5> <h4 class="addToWatchlist" id="${imdbID}" onclick="removeFromWatchList('${imdbID}')"><img src="/images/minusIcon.svg"/>Remove from watchlist</h4>
                 <p>${Plot}</p>
             </div>
         </div>

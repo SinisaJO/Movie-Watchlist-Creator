@@ -112,15 +112,19 @@ picture {
     padding-left: 0;
     padding-right: 10rem;
     border-left: none;
+    background: rgba(255, 255, 255, .95);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
+
 
 .search-input:focus {
     outline: none;
 }
 
 .logo-box {
-    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;    background: #fff;
     border-right: none;
+    background: rgba(255, 255, 255, .95);
     padding: 13px;
     padding-right:10px;
     border-radius: 6px 0px 0px 6px;
@@ -133,9 +137,9 @@ picture {
 }
 
 .search-btn {
-    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;    display: flex;
     gap: .3rem;
-    background: #fff;
+    background: rgba(255, 255, 255, .95);
     border-left: none;
     cursor: pointer;
     border-radius: 0px 6px 6px 0px;
@@ -220,8 +224,8 @@ picture {
 
 .movie-description h4 img {
     position: absolute;
-    top: 4px;
-    left: -18px;
+    top: 3px;
+    left: -20px;
 }
 
 .movie-description h5, .movie-description h4{
@@ -242,3 +246,50 @@ picture {
     font-weight: 400;
     color: #6B7280;
 }
+
+/* mobile/tablet */
+
+@media(max-width: 600px) {
+    .search-input {
+        padding-right: 0rem;
+        width: 50%;
+    }
+}
+
+@media(max-width: 500px) {
+    .search-box {
+        top: 27vh;
+    }
+
+    .title {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0;
+        text-align: left;
+        margin-bottom: .5rem;
+    }
+    .title h2 {
+        font-size: 1.3rem;
+    }
+
+    .intro-box {
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .movie-card img {
+        max-width: 35%;
+    }
+
+    .movie-description p {
+        font-size: .85rem;
+    }
+
+    .placeholder-box {
+        text-align: center;
+    }
+}
+
+
