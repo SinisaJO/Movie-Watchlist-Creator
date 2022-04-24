@@ -75,20 +75,11 @@ picture {
 }
 
 .intro a span{
-    font-size: 1rem;
-    line-height: .95;
-    font-weight: 800;
-    width: 16px;
-    height: 16px;
     cursor: pointer;
     position: absolute;
     top: -5px;
     right: -10px;
     z-index: 1;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.753);
-    color: #333;
-    border-radius: 50%;
 }
 
 /* Search input */
