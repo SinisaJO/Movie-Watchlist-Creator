@@ -3,7 +3,13 @@ const placeholder = document.getElementById("placeholder-box")
 let dataArr = (JSON.parse(localStorage.getItem("movieId")))
 let isAdded = false
 
-getData()
+if (dataArr.length > -1) {
+    getData()
+}else {
+    localStorage.clear()
+}
+
+
 function getData() {  
     moviesPlaceholder.innerHTML = ""
     if (dataArr.length){
