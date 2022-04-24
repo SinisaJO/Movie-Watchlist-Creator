@@ -43,10 +43,11 @@ picture {
     background-image: linear-gradient(hsla(0, 0%, 0%, 0.75), hsla(0, 0%, 0%, 0.75)), url(/images/background.jpg);
     background-position: center;
     background-size: 100%;
+    position: relative;
 }
 
 .intro-box {
-    min-height: 30vh;
+    min-height: 250px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -94,7 +95,7 @@ picture {
 
 .search-box {
     position: absolute;
-    top: 28vh;
+    top: 228px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -131,9 +132,10 @@ picture {
     cursor: pointer;
 }
 
-.search-logo:active {
-    transform: scale(.5);
-    transition: all 150ms ease-in-out;
+.search-logo:active,
+.search-logo:focus {
+    transform: scale(.9);
+    transition: all 5ms ease;
 }
 
 .search-btn {
@@ -257,10 +259,6 @@ picture {
 }
 
 @media(max-width: 500px) {
-    .search-box {
-        top: 27vh;
-    }
-
     .title {
         flex-direction: column;
         justify-content: center;
