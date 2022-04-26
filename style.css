@@ -98,6 +98,7 @@ picture {
     align-items: center;
 }
 
+
 .border {
     border: 1px solid #D1D5DB;
     padding: 9px 13px;
@@ -110,7 +111,6 @@ picture {
     background: rgba(255, 255, 255, .95);
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
-
 
 .search-input:focus {
     outline: none;
@@ -166,6 +166,10 @@ picture {
     padding: 2rem 0rem;
     gap: 2rem;
     border-bottom: 1px solid #E5E7EB;
+}
+
+.movie-card:last-child {
+    border: none;
 }
 
 .movie-card img {
