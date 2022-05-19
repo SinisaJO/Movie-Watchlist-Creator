@@ -1,9 +1,3 @@
-<style>
- .border{
-  border: 2px solid black;
- }
-</style>
-
 <h1 align="center">Welcome to Movie Watchlist APP 👋</h1>
 
  <h4>Screenshoot</h4>
