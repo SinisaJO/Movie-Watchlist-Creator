@@ -3,12 +3,15 @@ const placeholder = document.getElementById("placeholder-box")
 let dataArr = (JSON.parse(localStorage.getItem("movieId")))
 let isAdded = false
 
-if (dataArr.length > -1) {
-    getData()
+if(dataArr) {
+    if (dataArr.length > -1) {
+        getData()
+    }else {
+        localStorage.clear()
+    }
 }else {
-    localStorage.clear()
+    moviesPlaceholder.innerHTML = renderOnError()
 }
-
 
 function getData() {  
     moviesPlaceholder.innerHTML = ""
@@ -21,12 +24,7 @@ function getData() {
                 })
         })
     }else {
-        moviesPlaceholder.innerHTML = `
-        <div id="placeholder-box" class="placeholder-box">
-            <h2 class="placeholder-text">Your watchlist is looking a little empty...</h2>
-            <a href="/index.html"><img src="/images/plusIcon.svg" />Let’s add some movies!</a>
-        </div>
-    `
+        moviesPlaceholder.innerHTML = renderOnError()
     }
 }
 
@@ -35,12 +33,12 @@ function renderMovies(data) {
     if(data){
     moviesPlaceholder.innerHTML += `
         <div class="movie-card" id="${imdbID}">
-            <img src="${Poster}" />
+            <img src="${Poster}" loading="lazy"/>
             <div class="movie-description">
                 <div class="title">
                     <h2>${Title}</h2> <h5><span>⭐</span>${imdbRating}</h5>
                 </div>
-                <h5>${Runtime}</h5> <h5>${Genre}</h5> <h4 class="addToWatchlist" id="${imdbID}" onclick="removeFromWatchList('${imdbID}')"><img src="/images/minusIcon.svg"/>Remove from watchlist</h4>
+                <h5>${Runtime}</h5> <h5>${Genre}</h5> <button class="addToWatchlist" id="${imdbID}" onclick="removeFromWatchList('${imdbID}')"><img src="/images/minusIcon.svg"/>Remove from watchlist</button>
                 <p>${Plot}</p>
             </div>
         </div>
@@ -48,11 +46,21 @@ function renderMovies(data) {
     }
 }
 
+function renderOnError(){
+    return `
+        <div id="placeholder-box" class="placeholder-box">
+            <h2 class="placeholder-text">Your watchlist is looking a little empty...</h2>
+            <a href="/index.html"><img src="/images/plusIcon.svg" />Let’s add some movies!</a>
+        </div>
+    `
+}
+
 function removeFromWatchList(id) {
     dataArr.splice(dataArr.indexOf(id), 1)
     localStorage.setItem("movieId", JSON.stringify(dataArr))
     getData()
 }
+
 
 
 

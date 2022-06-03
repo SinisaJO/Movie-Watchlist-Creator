@@ -3,7 +3,7 @@ const moviesPlaceholder = document.getElementById("movies-placeholder")
 const searchInput = document.getElementById("search-input")
 const searchBtn = document.getElementById("search-btn")
 const searchLogoBtn = document.getElementById("search-btn-logo")
-let isAdded = false
+
 let watchlistMovies = []
 
 async function getData() {
@@ -30,18 +30,39 @@ async function getData() {
 }
 
 function renderCards(data) {
+    const {imdbID, Plot, Poster, Runtime ,Genre, imdbRating, Title} = data
     moviesPlaceholder.innerHTML += `
-        <div class="movie-card" id="${data.imdbID}">
-            <img src="${data.Poster}" />
+        <div class="movie-card" id="${imdbID}">
+            <img src="${Poster}" />
             <div class="movie-description">
                 <div class="title">
-                    <h2>${data.Title}</h2> <h5><span>⭐</span>${data.imdbRating}</h5>
+                    <h2>${Title}</h2> <h5><span>⭐</span>${imdbRating}</h5>
                 </div>
-                <h5>${data.Runtime}</h5> <h5>${data.Genre}</h5> <h4 class="addToWatchlist" onclick="saveToWatchlist('${data.imdbID}')"><img src="/images/plusIcon.svg"/>Watchlist</h4>
-                <p>${data.Plot}</p>
+                <h5>${Runtime}</h5> <h5>${Genre}</h5> <button class="addToWatchlist" id="${imdbID}"><img id="${imdbID}" class="card-img" src="/images/plusIcon.svg"/>Watchlist</button>
+                <p>${Plot}</p>
             </div>
         </div>
     `
+}
+
+ moviesPlaceholder.addEventListener("click", (e) => {
+    const target = e.target
+    const url = "http://127.0.0.1:5500"
+    if(target.tagName === "BUTTON"){
+        console.log(target.children[0].src)
+        if(target.children[0].src == `${url}/images/plusIcon.svg`){
+            target.children[0].src = `${url}/images/minusIcon.svg`
+            saveToWatchlist(target.id)
+        }else {
+            target.children[0].src = `${url}/images/plusIcon.svg`
+            removeFromWatchList(target.id)
+        }     
+    }
+})
+
+function removeFromWatchList(data){
+    watchlistMovies.splice(watchlistMovies.indexOf(data), 1)
+    localStorage.setItem("movieId", JSON.stringify(watchlistMovies))
 }
 
 function saveToWatchlist(data) {
