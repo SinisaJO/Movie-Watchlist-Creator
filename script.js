@@ -46,7 +46,7 @@ function renderCards(data) {
                 <div class="title">
                     <h2>${Title}</h2> <h5><span>⭐</span>${imdbRating}</h5>
                 </div>
-                <h5>${Runtime}</h5> <h5>${Genre}</h5> <button class="addToWatchlist" id="${imdbID}"><img id="${imdbID}" class="card-img" src="/images/plusIcon.svg"/>Watchlist</button>
+                <h5>${Runtime}</h5> <h5>${Genre}</h5> <button class="addToWatchlist" id="${imdbID}"><img id="${imdbID}" class="card-img" src="${watchlistMovies.includes(imdbID) ? '/images/minusIcon.svg' : '/images/plusIcon.svg'}"/>Watchlist</button>
                 <p>${Plot}</p>
             </div>
         </div>
@@ -55,7 +55,7 @@ function renderCards(data) {
 
  moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
-    const url = "https://delightful-cocada-a459db.netlify.app"
+    const url = "http://127.0.0.1:5500"
     if(target.tagName === "BUTTON"){
         console.log(target.children[0].src)
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
