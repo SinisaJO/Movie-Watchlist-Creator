@@ -47,14 +47,12 @@ function renderCards(data) {
 
  moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
-    const url = "http://127.0.0.1:5500"
     if(target.tagName === "BUTTON"){
-        console.log(target.children[0].src)
-        if(target.children[0].src == `${url}/images/plusIcon.svg`){
-            target.children[0].src = `${url}/images/minusIcon.svg`
+        if(target.children[0].src == `/images/plusIcon.svg`){
+            target.children[0].src = `/images/minusIcon.svg`
             saveToWatchlist(target.id)
         }else {
-            target.children[0].src = `${url}/images/plusIcon.svg`
+            target.children[0].src = `/images/plusIcon.svg`
             removeFromWatchList(target.id)
         }     
     }
