@@ -48,11 +48,11 @@ function renderCards(data) {
  moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
     if(target.tagName === "BUTTON"){
-        if(target.children[0].src == `/images/plusIcon.svg`){
-            target.children[0].src = `/images/minusIcon.svg`
+        if(target.children[0].src == "/images/plusIcon.svg"){
+            target.children[0].src = "/images/minusIcon.svg"
             saveToWatchlist(target.id)
         }else {
-            target.children[0].src = `/images/plusIcon.svg`
+            target.children[0].src = "/images/plusIcon.svg"
             removeFromWatchList(target.id)
         }     
     }
