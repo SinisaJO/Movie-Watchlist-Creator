@@ -55,7 +55,7 @@ function renderCards(data) {
 
  moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
-    const url = "http://127.0.0.1:5500"
+    const url = "https://delightful-cocada-a459db.netlify.app"
     if(target.tagName === "BUTTON"){
         console.log(target.children[0].src)
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
