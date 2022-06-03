@@ -47,9 +47,8 @@ function renderCards(data) {
 
  moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
-    const url = "https://delightful-cocada-a459db.netlify.app"
     if(target.tagName === "BUTTON"){
-        console.log(target.children[0].src)
+        const url = "https://delightful-cocada-a459db.netlify.app"
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
             target.children[0].src = `${url}/images/minusIcon.svg`
             saveToWatchlist(target.id)
