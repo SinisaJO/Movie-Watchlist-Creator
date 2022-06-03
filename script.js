@@ -6,6 +6,13 @@ const searchLogoBtn = document.getElementById("search-btn-logo")
 
 let watchlistMovies = []
 
+if(localStorage.getItem("movieId")){
+    watchlistMovies = JSON.parse(localStorage.getItem("movieId"))
+    console.log(watchlistMovies.length)
+    document.getElementById("movies-count").textContent = watchlistMovies.length
+}
+
+
 async function getData() {
     const searchValue = searchInput.value
     moviesPlaceholder.innerHTML = ``
@@ -30,6 +37,7 @@ async function getData() {
 }
 
 function renderCards(data) {
+    document.getElementById("movies-count").textContent = watchlistMovies.length
     const {imdbID, Plot, Poster, Runtime ,Genre, imdbRating, Title} = data
     moviesPlaceholder.innerHTML += `
         <div class="movie-card" id="${imdbID}">
@@ -47,14 +55,17 @@ function renderCards(data) {
 
  moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
+    const url = "http://127.0.0.1:5500"
     if(target.tagName === "BUTTON"){
-        const url = "https://delightful-cocada-a459db.netlify.app"
+        console.log(target.children[0].src)
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
             target.children[0].src = `${url}/images/minusIcon.svg`
             saveToWatchlist(target.id)
+            document.getElementById("movies-count").textContent = watchlistMovies.length
         }else {
             target.children[0].src = `${url}/images/plusIcon.svg`
             removeFromWatchList(target.id)
+            document.getElementById("movies-count").textContent = watchlistMovies.length
         }     
     }
 })
