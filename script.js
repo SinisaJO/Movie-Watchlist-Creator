@@ -33,7 +33,7 @@ function renderCards(data) {
     const {imdbID, Plot, Poster, Runtime ,Genre, imdbRating, Title} = data
     moviesPlaceholder.innerHTML += `
         <div class="movie-card" id="${imdbID}">
-            <img src="${Poster}" />
+            <img src="${Poster == "N/A" ? `https://assets.codepen.io/5515635/generic-movie-poster.jpg`: Poster}" />
             <div class="movie-description">
                 <div class="title">
                     <h2>${Title}</h2> <h5><span>⭐</span>${imdbRating}</h5>
@@ -47,8 +47,9 @@ function renderCards(data) {
 
  moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
+    const url = "http://127.0.0.1:5500"
     if(target.tagName === "BUTTON"){
-        const url = "https://delightful-cocada-a459db.netlify.app"
+        console.log(target.children[0].src)
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
             target.children[0].src = `${url}/images/minusIcon.svg`
             saveToWatchlist(target.id)

@@ -33,7 +33,7 @@ function renderMovies(data) {
     if(data){
     moviesPlaceholder.innerHTML += `
         <div class="movie-card" id="${imdbID}">
-            <img src="${Poster}" loading="lazy"/>
+            <img src="${Poster == "N/A" ? `https://assets.codepen.io/5515635/generic-movie-poster.jpg`: Poster}" loading="lazy"/>
             <div class="movie-description">
                 <div class="title">
                     <h2>${Title}</h2> <h5><span>⭐</span>${imdbRating}</h5>
