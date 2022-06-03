@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Movie Watchlist APP 👋</h1>
 
  <h4>Screenshoot</h4>
- <div class="border"><img src="https://i.ibb.co/NyJy9L0/Movie-Watchlist-Creator.png" alt="Movie-Watchlist-Creator" border="0"></div>
+ <div class="border"><img src="https://i.ibb.co/2FrxfH5/app.png" alt="app" border="0"></div>
 
 <ol>
   <h2>Requirements: </h2>
