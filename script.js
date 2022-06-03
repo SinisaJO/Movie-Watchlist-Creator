@@ -8,7 +8,6 @@ let watchlistMovies = []
 
 if(localStorage.getItem("movieId")){
     watchlistMovies = JSON.parse(localStorage.getItem("movieId"))
-    console.log(watchlistMovies.length)
     document.getElementById("movies-count").textContent = watchlistMovies.length
 }
 
