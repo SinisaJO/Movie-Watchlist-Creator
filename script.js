@@ -56,7 +56,6 @@ function renderCards(data) {
     const target = e.target
     const url = "https://delightful-cocada-a459db.netlify.app"
     if(target.tagName === "BUTTON"){
-        console.log(target.children[0].src)
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
             target.children[0].src = `${url}/images/minusIcon.svg`
             saveToWatchlist(target.id)
