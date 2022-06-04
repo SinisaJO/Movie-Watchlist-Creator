@@ -10,7 +10,21 @@
    <li> Button to "add to watchlist" which saves that data to local storage </li>
    <li> Watchlist.html loads and displays data from local storage </li>
 </ol>
+
+<ol>
+  <h2>Key learnings: </h2>
+  
+  1. Callbacks: 	
+             	• Functions as first-class objects
+  2. Promises: 
+              • Three states(pending, fulfilled, rejected)
+              • .then(),.catch() and chaining
+              • async/await + try/catch syntax
+</ol>
 <ul>
+
+  
+
  
 <h3>Live server: https://delightful-cocada-a459db.netlify.app/</h3>
   
