@@ -56,7 +56,7 @@ function renderOnError(){
 
 moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
-    const url = "http://127.0.0.1:5500"
+    const url = "https://delightful-cocada-a459db.netlify.app"
     if(target.tagName === "BUTTON"){
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
             target.children[0].src = `${url}/images/minusIcon.svg`
