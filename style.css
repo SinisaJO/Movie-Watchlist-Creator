@@ -96,6 +96,11 @@ picture {
 
 /* Search input */
 
+.color-search-input {
+    background: rgba(255, 255, 255, .94);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
 .search-box {
     position: absolute;
     top: 228px;
@@ -117,8 +122,7 @@ picture {
     padding-left: 0;
     padding-right: 10rem;
     border-left: none;
-    background: rgba(255, 255, 255, .95);
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    
 }
 
 .search-input:focus {
@@ -126,9 +130,7 @@ picture {
 }
 
 .logo-box {
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;    background: #fff;
     border-right: none;
-    background: rgba(255, 255, 255, .95);
     padding: 13px;
     padding-right:10px;
     border-radius: 6px 0px 0px 6px;
@@ -142,9 +144,8 @@ picture {
 }
 
 .search-btn {
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;    display: flex;
+    display: flex;
     gap: .3rem;
-    background: rgba(255, 255, 255, .95);
     border-left: none;
     cursor: pointer;
     border-radius: 0px 6px 6px 0px;
@@ -308,7 +309,7 @@ picture {
     }
 }
 
-
+/* Chrome X icon inside input fields */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
