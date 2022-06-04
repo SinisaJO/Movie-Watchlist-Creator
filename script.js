@@ -11,27 +11,26 @@ if(localStorage.getItem("movieId")){
     document.getElementById("movies-count").textContent = watchlistMovies.length
 }
 
-
 async function getData() {
-    const searchValue = searchInput.value
-    moviesPlaceholder.innerHTML = ``
-    const res = await fetch(`https://www.omdbapi.com/?apikey=99bb1601&s=${searchValue}`) 
-    const data = await res.json()
-    const dataArr = data.Search
-
-    placeholder.remove()
-    if(dataArr){
-    dataArr.forEach(element => {
-        fetch(`https://www.omdbapi.com/?apikey=99bb1601&i=${element.imdbID}`)
-            .then(res => res.json())
-            .then(data => {
+    try {
+        const searchValue = searchInput.value
+        moviesPlaceholder.innerHTML = ``
+        const res = await fetch(`https://www.omdbapi.com/?apikey=99bb1601&s=${searchValue}`) 
+        const data = await res.json()
+        const dataArr = data.Search
+        placeholder.remove()
+        if(dataArr){
+            dataArr.forEach(async(element) => {
+                const response = await fetch(`https://www.omdbapi.com/?apikey=99bb1601&i=${element.imdbID}`)
+                const data = await response.json()  
                 renderCards(data)
             })
-    })
-    }else {
-        moviesPlaceholder.innerHTML = `
-            <h2 class="error-text">Unable to find what you’re looking for. Please try another search.</h2>
-        `
+        }else {
+            moviesPlaceholder.innerHTML = renderOnError()
+        }
+    }catch(error){
+        console.error("Something went wrong!")
+        moviesPlaceholder.innerHTML = renderOnError()
     }
 }
 
@@ -51,9 +50,13 @@ function renderCards(data) {
     `
 }
 
- moviesPlaceholder.addEventListener("click", (e) => {
+function renderOnError(){
+    return `<h2 class="error-text">Unable to find what you’re looking for. Please try another search.</h2>`
+}
+
+moviesPlaceholder.addEventListener("click", (e) => {
     const target = e.target
-    const url = "https://delightful-cocada-a459db.netlify.app"
+    const url = "http://127.0.0.1:5500"
     if(target.tagName === "BUTTON"){
         if(target.children[0].src == `${url}/images/plusIcon.svg`){
             target.children[0].src = `${url}/images/minusIcon.svg`
