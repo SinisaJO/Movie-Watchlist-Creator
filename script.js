@@ -67,20 +67,20 @@ function renderCards(data) {
     }
 })
 
-function removeFromWatchList(data){
-    watchlistMovies.splice(watchlistMovies.indexOf(data), 1)
+function removeFromWatchList(dataId){
+    watchlistMovies.splice(watchlistMovies.indexOf(dataId), 1)
     localStorage.setItem("movieId", JSON.stringify(watchlistMovies))
 }
 
-function saveToWatchlist(data) {
+function saveToWatchlist(dataId) {
     if(localStorage.getItem("movieId")){
         watchlistMovies = JSON.parse(localStorage.getItem("movieId"))
-        if(!watchlistMovies.includes(data)){
-            watchlistMovies.push(data)
+        if(!watchlistMovies.includes(dataId)){
+            watchlistMovies.push(dataId)
             localStorage.setItem("movieId", JSON.stringify(watchlistMovies))
         }
     } else {
-        watchlistMovies.push(data);
+        watchlistMovies.push(dataId);
         localStorage.setItem('movieId', JSON.stringify(watchlistMovies))
     }   
 }
