@@ -15,11 +15,11 @@
   <h2>Key learnings: </h2>
   
   1. Callbacks: 	
-             	• Functions as first-class objects
+             	</br>• Functions as first-class objects
   2. Promises: 
-              • Three states(pending, fulfilled, rejected)
-              • .then(),.catch() and chaining
-              • async/await + try/catch syntax
+              </br>• Three states(pending, fulfilled, rejected)
+              </br>• .then(),.catch() and chaining
+              </br>• async/await + try/catch syntax
 </ol>
 <ul>
 
