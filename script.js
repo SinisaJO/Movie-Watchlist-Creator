@@ -36,7 +36,6 @@ async function getData() {
 }
 
 function renderCards(data) {
-    document.getElementById("movies-count").textContent = watchlistMovies.length
     const {imdbID, Plot, Poster, Runtime ,Genre, imdbRating, Title} = data
     moviesPlaceholder.innerHTML += `
         <div class="movie-card" id="${imdbID}">
