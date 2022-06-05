@@ -35,7 +35,7 @@ function renderMovies(data) {
                 <div class="title">
                     <h2>${Title}</h2> <h5><span>⭐</span>${imdbRating}</h5>
                 </div>
-                <h5>${Runtime}</h5> <h5>${Genre}</h5> <button class="addToWatchlist" id="${imdbID}" onclick="removeFromWatchList('${imdbID}')"><img src="/images/minusIcon.svg"/>Remove from watchlist</button>
+                <h5>${Runtime}</h5> <h5>${Genre}</h5> <button class="addToWatchlist" id="${imdbID}" onclick="removeFromWatchList('${imdbID}')"><img src="/images/minusIcon.svg"/>Remove</button>
                 <p>${Plot}</p>
             </div>
         </div>
